@@ -1,0 +1,49 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Logs
+logs/
+*.log
+*.log.*
+/*.log
+
+# Environment variables
+.env
+
+# TypeScript
+*.tsbuildinfo
+
+# Dist folder (build output)
+dist/
+build/
+
+# SQLite database
+*.sqlite
+*.sqlite3
+*.db
+
+# Temporary directories and files
+tmp/
+temp/
+.DS_Store
+
+# Mac OS files
+*.DS_Store
+
+# IDE files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# TypeORM migrations generated files
+src/migration/*.js
+
+# Coverage directory used by Jest
+coverage/
+
+
+*storybook.log

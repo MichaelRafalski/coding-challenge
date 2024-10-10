@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ES5", // You're targeting ES5
+    "lib": ["DOM", "ES2015"], // Add ES2015 to the lib to support Promise
+    "module": "ESNext",
+    "jsx": "react",
+    "strict": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["src"]
+}
