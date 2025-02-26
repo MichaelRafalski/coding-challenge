@@ -119,13 +119,16 @@ Feel free to use this token when configuring **Mapbox** in your frontend.
 
 1. **Branch/Repo**:
 
-   - Create your own branch in the provided repository and commit your changes regularly.
+   - Fork the repository and create your own branch to implement the solution.
+   - Commit your changes regularly.
 
 2. **Do not open a pull request**:
 
-   - Submit the completed project as a GitHub branch or zip file.
+   - Submit the completed project by sharing the link to your forked repository and the branch name.
+   - Alternatively, you can submit your solution as a **zip file** if necessary.
 
 3. **Run Instructions**:
+
    - Ensure that your submission includes clear instructions on how to run the project.
 
 ---
