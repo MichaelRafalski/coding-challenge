@@ -1,0 +1,30 @@
+@media (max-width: 1024px) {
+  .header-content {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .header-center {
+    order: 3;
+  }
+
+  .header-stats {
+    width: 100%;
+    justify-content: space-around;
+    padding: 16px 0;
+    border: none;
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .header-right {
+    order: 2;
+    justify-content: center;
+  }
+
+  .refresh-controls {
+    width: 100%;
+    justify-content: center;
+  }
+}
