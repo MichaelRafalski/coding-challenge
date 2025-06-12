@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "npm run lint:tsc && npm run lint:prettier && npm run lint:eslint && npm run lint:stylelint",
-    "lint:prettier": "prettier --check src/",
+    "lint:prettier": "prettier --check src/ --write",
     "lint:eslint": "npx eslint --max-warnings 0 --ext .tsx,.ts,.js,.jsx src/",
     "lint:stylelint": "stylelint \"src/**/*.{css,scss}\"",
     "stylelint:fix": "stylelint \"src/**/*.{css,scss}\" --fix",
