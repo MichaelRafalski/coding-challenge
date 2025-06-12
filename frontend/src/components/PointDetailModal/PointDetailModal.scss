@@ -1,0 +1,99 @@
+// src/components/PointDetailModal.scss (create this new file)
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it's on top of other content */
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+  width: 90%;
+  max-width: 500px; /* Adjust max-width as needed */
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #333;
+}
+
+.modal-body {
+  display: flex;
+  gap: 20px;
+  padding-top: 10px; /* Space for the close button */
+}
+
+.modal-image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0; /* Placeholder background */
+  border-radius: 4px;
+  overflow: hidden; /* Ensure image fits */
+  min-width: 150px; /* Minimum width for image side */
+  height: 150px; /* Fixed height for consistency */
+}
+
+.modal-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover; /* Cover the container */
+}
+
+.no-image-placeholder {
+  color: #888;
+  text-align: center;
+  font-style: italic;
+  font-size: 0.9em;
+}
+
+.modal-data-container {
+  flex: 1.5; /* Give more space to data */
+  display: flex;
+  flex-direction: column;
+
+  h4 {
+    margin-top: 0;
+    color: #333;
+  }
+
+  p {
+    margin: 5px 0;
+    font-size: 0.95em;
+    color: #555;
+  }
+
+  strong {
+    color: #222;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .modal-body {
+    flex-direction: column;
+  }
+  .modal-image-container {
+    height: 180px; /* Adjust height for smaller screens */
+  }
+}
