@@ -1,15 +1,26 @@
-import React from 'react'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import WelcomeScreen from './screen/Welcome'
+import React from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { MapGridPage } from "./pages/MapGridPage/MapGridPage";
+import { SessionDetailsPage } from "./pages/SessionDetailsPage";
+import "./App.scss";
 
-const App: React.FC = () => {
+function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<WelcomeScreen />} />
-      </Routes>
-    </Router>
-  )
+    <BrowserRouter>
+      <div className="app">
+        <main>
+          <Routes>
+            <Route path="/" element={<MapGridPage />} />
+            <Route
+              path="/session/:sessionId"
+              element={<SessionDetailsPage />}
+            />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </main>
+      </div>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
