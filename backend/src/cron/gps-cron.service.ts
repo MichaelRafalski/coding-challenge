@@ -4,6 +4,7 @@ import { GpsService } from "../gps/gps.service";
 import * as fs from "fs";
 import * as path from "path";
 import { parse } from "csv-parse";
+import { GpsPosition } from "../database/gps-position.entity";
 
 
 @Injectable()
@@ -64,13 +65,53 @@ export class GpsCronService {
   private async saveGpsDataToDatabase(gpsData: any[], filename: string) {
     for (const data of gpsData) {
       // 6. Place your logic here for processing the parsed data
-      // For example, you can map CSV rows to the GpsPosition entity
+      try {
+        // Extract sessionId from filename
+        const sessionId = path.basename(filename, '.csv').split('_')[1] || 'default';
+
+        // Create a new GpsPosition entity
+        const gpsPosition = new GpsPosition();
+        gpsPosition.latitude = parseFloat(data.latitude);
+        gpsPosition.longitude = parseFloat(data.longitude);
+        gpsPosition.timestamp = new Date(data.timestamp);
+        gpsPosition.sessionId = sessionId;
+
+        // Save the GPS position using the GpsService
+        await this.gpsService.saveGpsPosition(gpsPosition);
+        this.logger.debug(`Saved GPS position for session ${sessionId}`);
+      } catch (error: unknown) {
+        if (error instanceof Error) {
+          this.logger.error(`Error saving GPS data: ${error.message}`);
+        } else {
+          this.logger.error('Unknown error occurred while saving GPS data');
+        }
+      }
     }
   }
 
   // Helper function to remove or archive processed files
   private cleanupFile(filePath: string) {
     // 7. Place your logic here to clean up files (move or delete)
-    this.logger.debug(`Processed and deleted file: ${filePath}`);
+    try {
+      this.logger.debug(`Processed and deleted file: ${filePath}`);
+
+      // Create archive directory if it doesn't exist
+      const archiveDir = path.join(__dirname, "../../../gps-data/archive");
+      if (!fs.existsSync(archiveDir)) {
+        fs.mkdirSync(archiveDir, { recursive: true });
+      }
+
+      // Generate archive filename with timestamp
+      const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
+      const fileName = path.basename(filePath);
+      const archivePath = path.join(archiveDir, `${timestamp}_${fileName}`);
+
+      // Move the file to archive directory
+      fs.renameSync(filePath, archivePath);
+      this.logger.debug(`Moved file to archive: ${archivePath}`);
+    } catch (error) {
+      this.logger.error(`Error archiving file ${filePath}: ${error}`);
+    }
+
   }
 }

@@ -22,6 +22,7 @@ export class GpsService {
 
   // Save GPS position
   async saveGpsPosition(gpsPosition: GpsPosition): Promise<GpsPosition> {
+    // TODO: Use upsert to avoid duplicates this.gpsPositionRepository.upsert(gpsPosition, ["id", "latitude", "" ]); 
     return this.gpsPositionRepository.save(gpsPosition);
   }
 }
