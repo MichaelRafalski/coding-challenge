@@ -1,10 +1,6 @@
 import React from 'react'
 import { Map as Mapgl, Source, Layer } from 'react-map-gl'
-<<<<<<< HEAD
-import { GpsSession } from '../services/gpsApi'
-=======
 import { GpsSession } from '../services/gps-session'
->>>>>>> stuff
 import {
   MAP_ACCESS_TOKEN,
   MAP_STYLE,
