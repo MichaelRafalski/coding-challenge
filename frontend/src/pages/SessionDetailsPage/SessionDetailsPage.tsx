@@ -151,7 +151,7 @@ export const SessionDetailsPage: React.FC = () => {
       const clickedPoint = features.find((f) => f.layer?.id === pointLayer.id);
 
       if (clickedPoint && clickedPoint.properties) {
-        const { id, latitude, longitude, timestamp, imageUrl } =
+        const { id, latitude, longitude, timestamp } =
           clickedPoint.properties;
         setSelectedPointData({
           id,
