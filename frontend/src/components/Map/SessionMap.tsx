@@ -5,6 +5,8 @@ import { GpsPosition, formatTimestamp } from "../../services/gpsApi";
 import { MAP_ACCESS_TOKEN, MAP_STYLE } from "../../constants";
 import { lineLayer, pointLayer } from "./mapConfig";
 
+import "./SessionMap.scss";
+
 interface SessionMapProps {
   sessionId: string;
   positions: GpsPosition[];

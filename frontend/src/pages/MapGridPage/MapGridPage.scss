@@ -152,61 +152,6 @@
   min-height: calc(100vh - 120px);
 }
 
-.map-container {
-  position: relative;
-  height: 360px;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: var(--shadow-lg);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
-  background: var(--background-light);
-  border: 1px solid var(--border-light);
-
-  &:hover {
-    transform: translateY(-4px) scale(1.02);
-    box-shadow:
-      var(--shadow-lg),
-      0 0 20px rgba(230, 0, 19, 0.1);
-    border-color: var(--primary-red);
-
-    .session-info {
-      transform: translateY(0);
-    }
-  }
-}
-
-.session-info {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  padding: 20px;
-  border-top: 2px solid var(--primary-red);
-  transform: translateY(0);
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.session-header {
-  color: var(--primary-red);
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 12px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid rgba(230, 0, 19, 0.2);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.session-details {
-  color: var(--text-muted);
-  font-size: 14px;
-  line-height: 1.6;
-}
-
 .time-range {
   display: flex;
   align-items: center;
