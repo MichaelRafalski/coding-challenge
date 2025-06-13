@@ -59,7 +59,7 @@ Feel free to use this token when configuring **Mapbox** in your frontend.
 1. **Install dependencies**:
    Navigate to the `backend/` folder and run:
    ```bash
-   npm install
+   npm install --force
    ```
 
 (If you have not generated and run migration you need to perform `migration:generate` and `migration:run`)
