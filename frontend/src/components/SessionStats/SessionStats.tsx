@@ -1,5 +1,5 @@
-import React from 'react';
-import './SessionStats.scss';
+import React from "react";
+import "./SessionStats.scss";
 
 export interface SessionStatsProps {
   startTime: string;
@@ -8,11 +8,11 @@ export interface SessionStatsProps {
   totalPoints: number;
 }
 
-export const SessionStats: React.FC<SessionStatsProps> = ({ 
-  startTime, 
-  endTime, 
-  duration, 
-  totalPoints 
+export const SessionStats: React.FC<SessionStatsProps> = ({
+  startTime,
+  endTime,
+  duration,
+  totalPoints,
 }) => (
   <div className="session-stats">
     <div className="stat-card">
@@ -32,4 +32,4 @@ export const SessionStats: React.FC<SessionStatsProps> = ({
       <p>{totalPoints}</p>
     </div>
   </div>
-); 
+);

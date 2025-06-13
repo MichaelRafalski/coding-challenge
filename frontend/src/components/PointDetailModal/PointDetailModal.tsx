@@ -9,7 +9,7 @@ interface PointDetailModalProps {
     latitude: number;
     longitude: number;
     timestamp: string;
-    imageUrl?: string; 
+    imageUrl?: string;
   } | null;
 }
 
@@ -19,7 +19,7 @@ export const PointDetailModal: React.FC<PointDetailModalProps> = ({
   data,
 }) => {
   if (!isOpen || !data) {
-    return null; 
+    return null;
   }
 
   return (

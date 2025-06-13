@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 
-
 :root {
   --primary-red: #e60013;
   --primary-red-light: #ff1a2d;
@@ -16,9 +15,8 @@
   --gradient-red: linear-gradient(135deg, #e60013 0%, #ff1a2d 100%);
 }
 
-
 .session-info {
-    font-family: "Inter", sans-serif;
+  font-family: "Inter", sans-serif;
 
   position: absolute;
   bottom: 0;
@@ -81,25 +79,25 @@
   }
 }
 .map-container {
-    position: relative;
-    height: 360px;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: var(--shadow-lg);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    cursor: pointer;
-    background: var(--background-light);
-    border: 1px solid var(--border-light);
-  
-    &:hover {
-      transform: translateY(-4px) scale(1.02);
-      box-shadow:
-        var(--shadow-lg),
-        0 0 20px rgba(230, 0, 19, 0.1);
-      border-color: var(--primary-red);
-  
-      .session-info {
-        transform: translateY(0);
-      }
+  position: relative;
+  height: 360px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  background: var(--background-light);
+  border: 1px solid var(--border-light);
+
+  &:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow:
+      var(--shadow-lg),
+      0 0 20px rgba(230, 0, 19, 0.1);
+    border-color: var(--primary-red);
+
+    .session-info {
+      transform: translateY(0);
     }
   }
+}

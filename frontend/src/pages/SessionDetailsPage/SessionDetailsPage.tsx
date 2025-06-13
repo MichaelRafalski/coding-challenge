@@ -32,7 +32,8 @@ export const SessionDetailsPage: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [showAllPoints, setShowAllPoints] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedPointData, setSelectedPointData] = useState<ClickedPointData | null>(null);
+  const [selectedPointData, setSelectedPointData] =
+    useState<ClickedPointData | null>(null);
 
   useEffect(() => {
     const loadSessionData = async () => {
@@ -55,14 +56,15 @@ export const SessionDetailsPage: React.FC = () => {
   if (!sessionId) return <div className="error">Invalid session ID</div>;
   if (loading) return <div className="loading">Loading session data...</div>;
   if (error) return <div className="error">{error}</div>;
-  if (positions.length === 0) return <div className="error">No data available for this session</div>;
+  if (positions.length === 0)
+    return <div className="error">No data available for this session</div>;
 
   const startTime = formatTimestamp(positions[0].timestamp);
   const endTime = formatTimestamp(positions[positions.length - 1].timestamp);
   const duration = Math.round(
     (new Date(positions[positions.length - 1].timestamp).getTime() -
       new Date(positions[0].timestamp).getTime()) /
-      1000
+      1000,
   );
 
   const handlePointClick = (event: MapLayerMouseEvent) => {

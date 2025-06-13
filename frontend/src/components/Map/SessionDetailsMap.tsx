@@ -1,10 +1,10 @@
-import React from 'react';
-import { Map, Source, Layer, MapLayerMouseEvent } from 'react-map-gl';
-import type { Feature, LineString, FeatureCollection, Point } from 'geojson';
-import { GpsPosition } from '../../services/gpsApi';
-import { MAP_ACCESS_TOKEN } from '../../constants';
-import { lineLayer, pointLayer } from './mapConfig';
-import './SessionDetailsMap.scss';
+import React from "react";
+import { Map, Source, Layer, MapLayerMouseEvent } from "react-map-gl";
+import type { Feature, LineString, FeatureCollection, Point } from "geojson";
+import { GpsPosition } from "../../services/gpsApi";
+import { MAP_ACCESS_TOKEN } from "../../constants";
+import { lineLayer, pointLayer } from "./mapConfig";
+import "./SessionDetailsMap.scss";
 
 interface SessionDetailsMapProps {
   positions: GpsPosition[];
@@ -32,27 +32,27 @@ const calculateBounds = (positions: GpsPosition[]): MapBounds => {
       maxLng: positions[0].longitude,
       minLat: positions[0].latitude,
       maxLat: positions[0].latitude,
-    }
+    },
   );
 };
 
 const createTrackData = (positions: GpsPosition[]): Feature<LineString> => ({
-  type: 'Feature',
+  type: "Feature",
   properties: {},
   geometry: {
-    type: 'LineString',
+    type: "LineString",
     coordinates: positions.map((pos) => [pos.longitude, pos.latitude]),
   },
 });
 
 const createPointsData = (
   positions: GpsPosition[],
-  showAllPoints: boolean
+  showAllPoints: boolean,
 ): FeatureCollection<Point> => ({
-  type: 'FeatureCollection',
+  type: "FeatureCollection",
   features: showAllPoints
     ? positions.map((pos) => ({
-        type: 'Feature',
+        type: "Feature",
         properties: {
           id: pos.id,
           timestamp: pos.timestamp,
@@ -60,36 +60,36 @@ const createPointsData = (
           longitude: pos.longitude,
         },
         geometry: {
-          type: 'Point',
+          type: "Point",
           coordinates: [pos.longitude, pos.latitude],
         },
       }))
     : [
         {
-          type: 'Feature',
+          type: "Feature",
           properties: {
-            type: 'start',
+            type: "start",
             id: positions[0].id,
             timestamp: positions[0].timestamp,
             latitude: positions[0].latitude,
             longitude: positions[0].longitude,
           },
           geometry: {
-            type: 'Point',
+            type: "Point",
             coordinates: [positions[0].longitude, positions[0].latitude],
           },
         },
         {
-          type: 'Feature',
+          type: "Feature",
           properties: {
-            type: 'end',
+            type: "end",
             id: positions[positions.length - 1].id,
             timestamp: positions[positions.length - 1].timestamp,
             latitude: positions[positions.length - 1].latitude,
             longitude: positions[positions.length - 1].longitude,
           },
           geometry: {
-            type: 'Point',
+            type: "Point",
             coordinates: [
               positions[positions.length - 1].longitude,
               positions[positions.length - 1].latitude,
@@ -99,10 +99,10 @@ const createPointsData = (
       ],
 });
 
-export const SessionDetailsMap: React.FC<SessionDetailsMapProps> = ({ 
-  positions, 
-  showAllPoints, 
-  onPointClick 
+export const SessionDetailsMap: React.FC<SessionDetailsMapProps> = ({
+  positions,
+  showAllPoints,
+  onPointClick,
 }) => {
   const bounds = calculateBounds(positions);
   const trackData = createTrackData(positions);
@@ -119,7 +119,7 @@ export const SessionDetailsMap: React.FC<SessionDetailsMapProps> = ({
           ],
           fitBoundsOptions: { padding: 50 },
         }}
-        style={{ width: '100%', height: '100%' }}
+        style={{ width: "100%", height: "100%" }}
         mapStyle="mapbox://styles/mapbox/light-v11"
         interactiveLayerIds={[pointLayer.id!]}
         onClick={onPointClick}
@@ -133,4 +133,4 @@ export const SessionDetailsMap: React.FC<SessionDetailsMapProps> = ({
       </Map>
     </div>
   );
-}; 
+};

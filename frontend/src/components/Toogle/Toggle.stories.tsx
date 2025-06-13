@@ -1,26 +1,26 @@
-import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
-import { Toggle } from './Toggle';
+import React from "react";
+import type { Meta, StoryObj } from "@storybook/react";
+import { Toggle } from "./Toggle";
 
 const meta: Meta<typeof Toggle> = {
-  title: 'Components/Toggle',
+  title: "Components/Toggle",
   component: Toggle,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     checked: {
-      control: 'boolean',
-      description: 'The checked state of the toggle',
+      control: "boolean",
+      description: "The checked state of the toggle",
     },
     onChange: {
-      action: 'changed',
-      description: 'Callback fired when the toggle state changes',
+      action: "changed",
+      description: "Callback fired when the toggle state changes",
     },
     label: {
-      control: 'text',
-      description: 'Optional label text for the toggle',
+      control: "text",
+      description: "Optional label text for the toggle",
     },
   },
 };
@@ -32,7 +32,7 @@ type Story = StoryObj<typeof Toggle>;
 export const Basic: Story = {
   args: {
     checked: false,
-    onChange: (checked) => console.log('Toggle changed:', checked),
+    onChange: (checked) => console.log("Toggle changed:", checked),
   },
 };
 
@@ -40,8 +40,8 @@ export const Basic: Story = {
 export const WithLabel: Story = {
   args: {
     checked: false,
-    label: 'Enable Feature',
-    onChange: (checked) => console.log('Toggle changed:', checked),
+    label: "Enable Feature",
+    onChange: (checked) => console.log("Toggle changed:", checked),
   },
 };
 
@@ -49,24 +49,22 @@ export const WithLabel: Story = {
 export const Checked: Story = {
   args: {
     checked: true,
-    label: 'Feature Enabled',
-    onChange: (checked) => console.log('Toggle changed:', checked),
+    label: "Feature Enabled",
+    onChange: (checked) => console.log("Toggle changed:", checked),
   },
 };
-
-
 
 // Interactive example
 export const Interactive: Story = {
   args: {
     checked: false,
-    label: 'Click me!',
+    label: "Click me!",
   },
   parameters: {
     docs: {
       description: {
-        story: 'Try clicking the toggle or its label to see it in action.',
+        story: "Try clicking the toggle or its label to see it in action.",
       },
     },
   },
-}; 
+};

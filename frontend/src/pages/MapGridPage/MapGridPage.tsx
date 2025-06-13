@@ -54,7 +54,7 @@ export const MapGridPage: React.FC = () => {
 
       intervalId = setInterval(() => {
         loadData();
-      }, 60000); 
+      }, 60000);
     }
 
     return () => {

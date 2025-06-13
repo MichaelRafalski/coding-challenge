@@ -1,13 +1,15 @@
-import React from 'react';
-import { GpsPosition } from '../../services/gpsApi';
-import { formatTimestamp } from '../../services/gpsApi';
-import './PositionsTable.scss';
+import React from "react";
+import { GpsPosition } from "../../services/gpsApi";
+import { formatTimestamp } from "../../services/gpsApi";
+import "./PositionsTable.scss";
 
 interface PositionsTableProps {
   positions: GpsPosition[];
 }
 
-export const PositionsTable: React.FC<PositionsTableProps> = ({ positions }) => (
+export const PositionsTable: React.FC<PositionsTableProps> = ({
+  positions,
+}) => (
   <div className="positions-table">
     <h2>Position History</h2>
     <div className="table-container">
@@ -31,4 +33,4 @@ export const PositionsTable: React.FC<PositionsTableProps> = ({ positions }) => 
       </table>
     </div>
   </div>
-); 
+);
